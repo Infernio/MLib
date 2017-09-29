@@ -70,6 +70,16 @@ Event OnVersionUpdate(int oldVersion, int newVersion)
     ; Should get overridden
 EndEvent
 
+Event OnConfigOpen()
+    {Mirrors SkyUI's OnConfigOpen.}
+    ; Should get overriden
+EndEvent
+
+Event OnConfigClose()
+    {Mirrors SkyUI's OnConfigClose.}
+    ; Should get overriden
+EndEvent
+
 string Function GetTitle()
     {Returns this page's title that will be displayed in the MCM. You should override this method in your page scripts.}
     return "Override GetTitle()"

@@ -61,6 +61,22 @@ Event OnVersionUpdate(int newVersion)
     oldVersion = newVersion
 EndEvent
 
+Event OnConfigOpen()
+    int i = 0
+    While(i < PageScripts.length)
+        PageScripts[i].OnConfigOpen()
+        i += 1
+    EndWhile
+EndEvent
+
+Event OnConfigClose()
+    int i = 0
+    While(i < PageScripts.length)
+        PageScripts[i].OnConfigClose()
+        i += 1
+    EndWhile
+EndEvent
+
 ; === SKYUI FUNCTIONS === ;
 
 int Function GetVersion()
