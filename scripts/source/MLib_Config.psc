@@ -23,6 +23,8 @@ EndEvent
 
 Event OnConfigInit()
     Pages = Utility.CreateStringArray(PageScripts.length)
+    Debug.Notification(PageScripts.length)
+    Debug.Notification(Pages.length)
     int i = 0
     While(i < PageScripts.length)
         Pages[i] = PageScripts[i].GetTitle()
@@ -32,7 +34,6 @@ Event OnConfigInit()
 EndEvent
 
 Event OnPageReset(string page)
-    Debug.MessageBox("OnPageReset(string) called")
     GetPageScript(page)._ResetPage()
 EndEvent
 

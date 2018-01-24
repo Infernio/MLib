@@ -251,9 +251,10 @@ EndFunction
 
 Function _ResetPage()
     {Resets the entire page. Do not override this - override OnPageReset instead.}
-    Debug.MessageBox("_ResetPage() called")
     OptionIDS = Utility.CreateIntArray(numOptions)
+    OptionTypes = Utility.CreateIntArray(numOptions)
     OptionGVs = Utility.CreateFormArray(numOptions)
+    OptionHovers = Utility.CreateStringArray(numOptions)
 
     ; Add the actual components and then remember how many there were for next time
     OnPageReset()
