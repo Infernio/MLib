@@ -4,12 +4,12 @@ ScriptName MLib_Config Extends SKI_ConfigBase
 ; PROPERTIES
 MLib_Page[] Property PageScripts Auto
 {The pages that will be used to construct this MCM. Fill this instead of Pages, as that property will be overwritten at runtime!}
-int         Property Version Auto
+Int         Property Version Auto
 {The version of this MCM.}
 
 ; VARIABLES
 ; The previous version of this MCM script that was installed.
-int oldVersion
+Int oldVersion
 
 ; === REGULAR EVENTS === ;
 
@@ -22,38 +22,38 @@ EndEvent
 ; === SKYUI EVENTS === ;
 
 Event OnConfigInit()
-    Pages = Utility.CreateStringArray(PageScripts.length)
-    Debug.Notification(PageScripts.length)
-    Debug.Notification(Pages.length)
-    int i = 0
-    While(i < PageScripts.length)
+    Pages = Utility.CreateStringArray(PageScripts.Length)
+    Debug.Notification(PageScripts.Length)
+    Debug.Notification(Pages.Length)
+    Int i = 0
+    While(i < PageScripts.Length)
         Pages[i] = PageScripts[i].GetTitle()
         PageScripts[i]._InitPage(self)
         i += 1
     EndWhile
 EndEvent
 
-Event OnPageReset(string page)
+Event OnPageReset(String page)
     GetPageScript(page)._ResetPage()
 EndEvent
 
-Event OnOptionSelect(int option)
+Event OnOptionSelect(Int option)
     GetPageScript(CurrentPage)._SelectOption(option)
 EndEvent
 
-Event OnOptionHighlight(int option)
+Event OnOptionHighlight(Int option)
     GetPageScript(CurrentPage)._HighlightOption(option)
 EndEvent
 
-Event OnVersionUpdate(int newVersion)
+Event OnVersionUpdate(Int newVersion)
     If(newVersion == oldVersion)
         ; shush, SkyUI
         return
     EndIf
     Debug.Trace("[" + ModName + "] Updating MCM script from " + oldVersion + " to " + newVersion)
 
-    int i = 0
-    While(i < PageScripts.length)
+    Int i = 0
+    While(i < PageScripts.Length)
         PageScripts[i].OnVersionUpdate(oldVersion, newVersion)
         i += 1
     EndWhile
@@ -63,16 +63,16 @@ Event OnVersionUpdate(int newVersion)
 EndEvent
 
 Event OnConfigOpen()
-    int i = 0
-    While(i < PageScripts.length)
+    Int i = 0
+    While(i < PageScripts.Length)
         PageScripts[i].OnConfigOpen()
         i += 1
     EndWhile
 EndEvent
 
 Event OnConfigClose()
-    int i = 0
-    While(i < PageScripts.length)
+    Int i = 0
+    While(i < PageScripts.Length)
         PageScripts[i].OnConfigClose()
         i += 1
     EndWhile
@@ -80,16 +80,16 @@ EndEvent
 
 ; === SKYUI FUNCTIONS === ;
 
-int Function GetVersion()
+Int Function GetVersion()
     return Version
 EndFunction
 
-; === UTILITY & INTERNAL FUNCTIONS === ;
+; === UTILITY & IntERNAL FUNCTIONS === ;
 
-MLib_Page Function GetPageScript(string page)
+MLib_Page Function GetPageScript(String page)
     {Finds the page script for the page with the specified name.}
-    int i = 0
-    While(i < PageScripts.length)
+    Int i = 0
+    While(i < PageScripts.Length)
         If(page == Pages[i])
             return PageScripts[i]
         EndIf
