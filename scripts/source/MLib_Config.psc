@@ -23,8 +23,6 @@ EndEvent
 
 Event OnConfigInit()
     Pages = Utility.CreateStringArray(PageScripts.Length)
-    Debug.Notification(PageScripts.Length)
-    Debug.Notification(Pages.Length)
     Int i = 0
     While(i < PageScripts.Length)
         Pages[i] = PageScripts[i].GetTitle()
@@ -84,7 +82,7 @@ Int Function GetVersion()
     return Version
 EndFunction
 
-; === UTILITY & IntERNAL FUNCTIONS === ;
+; === UTILITY & INTERNAL FUNCTIONS === ;
 
 MLib_Page Function GetPageScript(String page)
     {Finds the page script for the page with the specified name.}
