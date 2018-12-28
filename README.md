@@ -9,14 +9,6 @@ For an example of a mod that uses it, see [Anofeyn](https://github.com/Infernio/
  - [SkyUI](https://www.nexusmods.com/skyrimspecialedition/mods/12604)
  - [SkyUI SDK](https://github.com/schlangster/skyui/wiki#skyui-sdk)
 
-## Building
- - Install all requirements listed above.
- - In `_build.sh`, change the variable `SKYRIM_PATH` to point to your Skyrim installation.
-   - *Note: You may need to make further changes to variables here if you use a non-standard Skyrim installation.*
- - Run `./_build.sh`. You will need a bash interpreter for this, I recommend [Git Bash](https://git-scm.com/downloads).
-
-*Note: If you want to use [Atom](https://atom.io) for development, you will have to edit `.build-papyrus.yml` to match your setup.*
-
 ## Usage
 ### Adding it to a project
 If you're using git, add MLib as a submodule:
@@ -25,10 +17,10 @@ If you're using git, add MLib as a submodule:
 git submodule add https://github.com/Infernio/MLib
 ```
 
-In your build script (for an example build script, see [Anofeyn's](https://github.com/Infernio/Anofeyn/blob/master/_build.sh) or [Campfire's](https://github.com/chesko256/Campfire/blob/master/Campfire_BuildRelease.py)), you should then copy the sources from `MLib/scripts` to the temporary build folder.
+In your build script (for an example build script, see [Anofeyn's](https://github.com/Infernio/Anofeyn/blob/master/build.sh) or [Campfire's](https://github.com/chesko256/Campfire/blob/master/Campfire_BuildRelease.py)), you should then copy the sources from `MLib/scripts` to the temporary build folder.
 
 Feel free to redistribute the script files - it's unlikely that MLib will ever need major updates.
-But, if you want to be 100% sure, you can add `MLib.esp` as a master and point users to MLib's nexus page.
+But, if you want to be 100% sure, you can add `MLib.esp` as a master and rely on it to provide the scripts.
 
 ### Creating a new MCM with MLib
 To create an MCM with this library, first create a quest with a player reference alias and attach SKI_PlayerLoadGameAlias, as you normally would.
@@ -62,9 +54,24 @@ Attach the appropriate script to each of those aliases.
 Finally, head back to the Scripts tab on your quest and edit the properties of the `MLib_Config` script again.
 Add all the aliases we just created to the `PageScripts` property.
 
-And that's it! You can now head down to the **MLib_Page Reference** section to see documentation on how to add options to the pages.
+And that's it! You can now head down to the **[Adding content to the pages](#adding-content-to-the-pages)** section to see documentation on how to add options to the pages.
 
 ### Changing an existing MCM to use MLib
+Follow the steps outlined above - but instead of creating a new quest, just reuse your existing MCM quest by removing the existing MCM script and attaching the `MLib_Config` script.
+
+You can then, for the most part, just copy-paste parts of your MCM script into the page scripts. Have a look at the **[Adding content to the pages](#adding-content-to-the-pages)** section for more information on the page scripts and how they differ from a full MCM script.
+
+## Building a release
+_Note: This section details how to create an MLib release for the Nexus.
+There is no need to do this if you just want to use MLib for a project - follow the instructions in the **[Adding it to a project](#adding-it-to-a-project)** section instead._
+ - Install all requirements listed above.
+ - In `build.sh`, change the variable `SKYRIM_PATH` to point to your Skyrim installation.
+   - *Note: You may need to make further changes to variables here if you use a non-standard Skyrim installation.*
+ - Also in `build.sh`, change the variable `VERSION` to the version you want to build.
+ - Run `./build.sh`. You will need a bash interpreter for this, I recommend [Git Bash](https://git-scm.com/downloads).
+
+*Note: If you want to use [Atom](https://atom.io) for development, you will have to edit `.build-papyrus.yml` to match your setup.*
+
 
 ## License
 MLib is licensed under the [MIT License](LICENSE).

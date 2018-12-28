@@ -1,0 +1,6 @@
+scripts\source\MLib_Config.psc
+scripts\source\MLib_Page.psc
+scripts\source\MLib_Utils.psc
+scripts\MLib_Config.pex
+scripts\MLib_Page.pex
+scripts\MLib_Utils.pex

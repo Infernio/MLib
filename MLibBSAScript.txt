@@ -1,0 +1,9 @@
+Log: ./MLibBSALog.txt
+New Archive
+Check: Misc
+Check: Compress Archive
+Check: Retain Directory Names
+Check: Retain File Names
+Set File Group Root: Data\
+Add File Group: ./MLibBSAManifest.txt
+Save Archive: ./MLib.bsa
