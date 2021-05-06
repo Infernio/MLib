@@ -1,3 +1,7 @@
+# Warning
+MLib is unfinished. If I recall correctly, it was working quite well, but still had a few major bugs.
+Feel free to use it, but those bugs will definitely need fixing before it can truly be useful.
+
 # MLib
 MLib is a library for Skyrim that helps with developing MCM menus by making their development more structured.
 In particular, it allows splitting MCMs into multiple files (one per page), simplifies the tooltip mechanic and also offers some utility methods for common tasks.
